@@ -23,6 +23,7 @@ app.use('/home',homeRouter);
 
 app.get('/',(req,res)=>{
     console.log('running........');
+    res.render('index') 
 })
 
 app.listen(3000,(req, res) => {
