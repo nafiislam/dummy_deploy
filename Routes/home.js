@@ -2,17 +2,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { Pool } = require("pg");
+// const { Pool } = require("pg");
 
-const pool = new Pool({
-    user: process.env.PGUSER,
-    host: process.env.PGHOST,
-    database: process.env.PGDATABASE,
-    password: process.env.PGPASSWORD,
-    port: process.env.PGPORT,
-    ssl:true
-});
-
+// const pool = new Pool({
+//     user: process.env.PGUSER,
+//     host: process.env.PGHOST,
+//     database: process.env.PGDATABASE,
+//     password: process.env.PGPASSWORD,
+//     port: process.env.PGPORT,
+//     ssl:true
+// });
+const { pool } = require("../db");
 router.get('/', async(req, res) => {
     const client = await pool.connect();
     const r = await client.query('SELECT * FROM hehe');
